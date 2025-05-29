@@ -9,7 +9,7 @@ export default function App() {
 
   // Base URL for the backend API - UPDATED FOR VERCEL
   // Vercel automatically proxies requests from /api to your functions
-  const API_BASE_URL = '/api';
+  const API_BASE_URL = 'https://battle-field-backend.vercel.app/api';
 
   useEffect(() => {
     // Function to fetch server information
