@@ -410,7 +410,7 @@ export default function App() {
         {/* Header Section */}
         <header className="header-section">
           <div className="breadcrumb">
-            <span className="breadcrumb-link">MULTIPLAYER</span>
+            <span className="breadcrumb-link">MULTIPLAYERS</span>
             <span className="breadcrumb-separator">/</span>
             <span className="breadcrumb-link">SERVER BROWSER</span>
             <span className="breadcrumb-separator">/</span>
