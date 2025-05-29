@@ -1,11 +1,13 @@
-import './App.css'
+// import './App.css'
 import Info from './Components/Info'
+import ServerInfo from './Components/ServerInfo'
 
 function App() {
 
   return (
     <>
-     <Info />
+     <ServerInfo />
+     {/* <Info /> */}
     </>
   )
 }
