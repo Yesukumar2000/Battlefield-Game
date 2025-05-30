@@ -31,10 +31,9 @@ const ServerInfo = () => {
                 setMapRotation(data);
             } catch (e) {
                 console.error("Failed to fetch map rotation:", e);
-                // More descriptive error message for the user
                 setError("Failed to load map rotation. Please ensure the Node.js backend server is deployed correctly.");
             } finally {
-                setLoading(false); // Set loading to false after both fetches
+                setLoading(false);
             }
         };
 
@@ -147,7 +146,7 @@ const ServerInfo = () => {
                         <button className="server__button server__button--favorite">
                             <img src="https://cdn.prod.website-files.com/6013fff62154adaa4600f932/601ab1b8ba5feb6d6e9bb7f6_favorites%20-%20black.svg" loading="lazy" alt="" className="server__favorite server__favorite--black" />
                             <img src="https://cdn.prod.website-files.com/6013fff62154adaa4600f932/601ab1b8abc05e847f1ac43f_favorites%20-%20white.svg" loading="lazy" alt="" className="server__favorite server__favorite--white" />
-                            <span className="server__button-text">13672</span>
+                            <p className="server__button-text" style={{marginLeft: '18px'}}>13672</p>
                         </button>
                     </section>
                     <section className="server__current-stats-w">
@@ -257,7 +256,10 @@ const ServerInfo = () => {
                             alt=""
                             className="invite__join-icon invite__join-icon--default"
                         />
-                        <div className="invite__join-h">squad join</div>
+                         <div className="invite__friend-info">
+                            <div className="invite__join-h">squad Join</div>
+                        </div>
+                        {/* <div className="invite__join-h">squad  {"  "}join</div> */}
                     </div>
                 </div>
                 <div className="invite__line"></div>
@@ -296,7 +298,7 @@ const ServerInfo = () => {
                             alt=""
                             className="invite__offline-icon"
                         />
-                        <div className="invite__offline-h">offline</div>
+                         <div className="invite__offline-h">offline</div>
                     </div>
                     <div className="invite__offline-friend">
                         <div className="invite__friend-picture-w">
@@ -307,10 +309,11 @@ const ServerInfo = () => {
                                 alt=""
                                 className="invite__friend-picture"
                             />
+
+                        <div className="invite__offline-h">
+                            <div className="invite__friend-name">{"   "}420</div>
+                            <div className="invite__friend-status">{"   "}offline</div>
                         </div>
-                        <div className="invite__friend-info">
-                            <div className="invite__friend-name">420</div>
-                            <div className="invite__friend-status">offline</div>
                         </div>
                     </div>
                 </div>

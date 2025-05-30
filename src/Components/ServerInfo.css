@@ -7,7 +7,76 @@ html {
 body {
   margin: 0;
 }
+.server__map {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
 
+.server__map:hover {
+  background-color: white;
+}
+
+.server__map:hover .server__map-mode,
+.server__map:hover .server__map-mapn {
+  color: black !important;
+}
+
+.server__map:hover .server__map-image-overlay {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.server__button {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.server__button-text {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.server__button:hover {
+  background-color: white;
+}
+
+.server__button:hover .server__button-text {
+  color: black;
+}
+
+/* --- Favorite Button Icon Swap --- */
+.server__button--favorite {
+  position: relative;
+}
+
+.server__favorite--black {
+  display: none;
+}
+
+.server__button--favorite:hover .server__favorite--black {
+  display: block;
+}
+
+.server__button--favorite:hover .server__favorite--white {
+  display: none;
+}
+
+/* --- Hover Effects for Server Settings --- */
+.server__setting:hover {
+  background-color: white;
+}
+
+.server__setting:hover .server__setting-text {
+  color: black !important;
+}
+
+.server__setting:hover .server__setting-text--yelow {
+  color: #CC9900 !important;
+}
 
 body {
   min-height: 100%;
@@ -1865,10 +1934,9 @@ a {
   display: none;
 }
 
-
 .invite {
   z-index: 9995;
-  width: 27vh;
+  width: 10vh;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0);
   flex-direction: column;
@@ -1881,7 +1949,8 @@ a {
   bottom: 0%;
   left: auto;
   right: 0%;
-  transform: translate(19vh);
+  transition: transform 0.3s ease-out; 
+  /* margin-left: 25px; */
 }
 
 .invite__line {
@@ -1935,7 +2004,6 @@ a {
 
 .invite__join-icon.invite__join-icon--black {
   z-index: 2;
-  margin-left: -1px;
   display: none;
   position: absolute;
 }
@@ -2073,7 +2141,91 @@ a {
   background-color: #fff;
   margin-right: .3vh;
 }
+.invite {
+  transition: transform 0.3s ease-out; 
+}
 
+.invite__line,
+.invite__squad-h,
+.invite__join-h,
+.invite__online-h,
+.invite__friend-info,
+.invite__offline-h,
+.invite__offline-friend {
+  transition: opacity 0.3s ease-out; 
+}
+.invite__join-h {
+  opacity: 0;
+}
+
+.invite__join-w .invite__join-h:hover {
+  opacity: 1; 
+}
+.invite__join-icon--default,
+.invite__join-icon--black {
+  transition: opacity 0.3s ease-out; 
+}
+
+.invite__join-icon--black {
+  opacity: 0;
+  pointer-events: none;
+}
+/* Styles when the .invite (aside) is hovered */
+.invite:hover {
+  transform: translate(0); 
+  background-color: rgb(24, 23, 23);
+  width: 27vh;
+}
+
+.invite:hover .invite__line {
+  opacity: 1;
+}
+
+.invite:hover .invite__squad-h {
+  opacity: 1;
+}
+
+.invite:hover .invite__join-w .invite__join-icon--default {
+  opacity: 0; 
+  display: none; 
+}
+
+.invite:hover .invite__join-w .invite__join-icon--black {
+  opacity: 1; /* Fade in the black icon */
+  display: block; /* Make the black icon visible */
+}
+
+.invite:hover .invite__join-icon--black {
+  opacity: 1;
+  pointer-events: auto;
+}
+.invite__online-friend:hover *,
+.invite__offline-friend:hover * {
+  color: black !important;
+}
+.invite:hover .invite__online-h {
+  opacity: 1;
+}
+
+.invite:hover .invite__online-friend .invite__friend-info {
+  opacity: 1;
+}
+
+.invite:hover .invite__offline-h {
+  opacity: 1;
+}
+
+.invite:hover .invite__offline-friend {
+  opacity: 1;
+}
+
+.invite__online-friend:hover,
+.invite__offline-friend:hover {
+    background-color: white; 
+    border-radius: 0.5vh; 
+    cursor: pointer; 
+    color: black !important;
+}
 .browser__body {
   overflow: hidden;
 }
@@ -2160,15 +2312,40 @@ a {
 .browser__breadcrumb-previous-2:hover {
   font-weight: 700;
 }
-
 .server__content {
-  width: 127vh;
+  width: 127vh; 
   height: 82.4vh;
-  border-bottom: 1px rgba(255, 255, 255, .1);
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
   margin-top: 8vh;
   position: relative;
   overflow: auto;
+
 }
+/* For Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 0.1rem;       
+  height: 0.1rem;      
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #555;  
+  border-radius: -10px;    
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: white;  
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;           /* "auto" or "thin" */
+  scrollbar-color: white transparent;
+}
+
 
 .server__info-w {
   margin-bottom: 3vh;
@@ -2251,14 +2428,9 @@ a {
   margin-bottom: 2vh;
   display: flex;
 }
-.server__buttons-w:hover{
-  /* background-color:rgb(235, 218, 218); */
+/* .server__buttons-w:hover{
    color: black;
-}
-.server__button:hover{
-  background-color:rgb(235, 218, 218);
-  /* color: black; */
-}
+} */
 .server__button {
     width: 28vh;
     height: 4.8vh;
